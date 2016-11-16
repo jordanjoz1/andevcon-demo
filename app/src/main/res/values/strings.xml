@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AnDevCon Demo</string>
+    <string name="which_fibonacci">Which Fibonacci?</string>
 </resources>

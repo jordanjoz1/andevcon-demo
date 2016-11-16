@@ -10,8 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.eero.andevcondemo.MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/input_field"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:hint="@string/which_fibonacci"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/output"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/input_field" />
 </RelativeLayout>

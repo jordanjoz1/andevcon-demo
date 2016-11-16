@@ -1,16 +1,27 @@
 package com.eero.andevcondemo;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
-/**
- * Created by jordan on 11/15/16.
- */
 public class SolverTest {
-    @Test
-    public void calcFib() throws Exception {
 
+    private Solver solver;
+
+    @Before
+    public void setup() {
+        solver = new Solver();
+    }
+
+    @Test
+    public void calcFib() {
+        Assert.assertEquals(0, solver.calcFib(1));
+        Assert.assertEquals(1, solver.calcFib(2));
+        Assert.assertEquals(1, solver.calcFib(3));
+        Assert.assertEquals(2, solver.calcFib(4));
+        Assert.assertEquals(3, solver.calcFib(5));
+        Assert.assertEquals(5, solver.calcFib(6));
+        Assert.assertEquals(8, solver.calcFib(7));
     }
 
 }
