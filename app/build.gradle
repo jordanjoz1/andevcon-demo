@@ -1,5 +1,17 @@
+apply from: '../jacoco.gradle'
+
 apply plugin: 'com.android.application'
 apply plugin: 'org.sonarqube'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'org.jacoco:org.jacoco.core:0.7.5.201505241946'
+    }
+}
 
 android {
     compileSdkVersion 24
@@ -13,9 +25,22 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            testCoverageEnabled = project.hasProperty("coverage") ? project.coverage : false
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+        unitTests.all {
+            jacoco {
+                includeNoLocationClasses = true
+            }
         }
     }
 }
@@ -60,7 +85,7 @@ sonarqube {
         property "sonar.android.lint.report", "${project.buildDir}/outputs/lint-results-debug.xml"
 
         // code coverage
-//        property "sonar.java.coveragePlugin", "jacoco"
-//        property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/testDebugUnitTest.exec"
+        property "sonar.java.coveragePlugin", "jacoco"
+        property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/testDebugUnitTest.exec"
     }
 }
