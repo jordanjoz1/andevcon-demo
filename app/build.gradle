@@ -2,6 +2,7 @@ apply from: '../jacoco.gradle'
 
 apply plugin: 'com.android.application'
 apply plugin: 'org.sonarqube'
+apply from: '../config/quality.gradle'
 
 buildscript {
     repositories {
