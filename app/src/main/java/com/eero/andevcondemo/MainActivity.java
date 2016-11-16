@@ -52,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
             history.add(new Pair<Integer, Integer>(input, output));
             String textOutput = String.valueOf(output);
             outputView.setText(String.valueOf(output));
-            
+
+            ArrayList<String> test = new ArrayList<>();
         }
     }
 
