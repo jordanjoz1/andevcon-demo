@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'org.sonarqube'
 
 android {
     compileSdkVersion 24
@@ -26,4 +27,40 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+}
+
+sonarqube {
+    properties {
+        // required metadata
+        property "sonar.projectKey", "andevcon-demo"
+        property "sonar.projectName", "AnDevConDemo"
+        property "sonar.projectVersion", "1.0"
+
+        // path to source directories (required)
+        property "sonar.sources", "src/main/java,src/main/res"
+
+        // binaries
+        property "sonar.java.binaries", "${project.buildDir}/intermediates/classes/debug"
+        property "sonar.java.test.binaries", "${project.buildDir}/intermediates/classes/test/debug/"
+
+        // libraries
+        def libraries = project.android.sdkDirectory.getPath() + "/platforms/android-23/android.jar," +
+                "${project.buildDir}/intermediates/classes/debug"
+        property "sonar.java.libraries", libraries
+        property "sonar.java.test.libraries", libraries
+
+        // tests
+        property "sonar.tests", "src/test/java"
+        property "sonar.junit.reportsPath", "${project.buildDir}/test-results/debug"
+
+        // other configs
+        property "sonar.java.source", "7"
+
+        // Android Lint
+        property "sonar.android.lint.report", "${project.buildDir}/outputs/lint-results-debug.xml"
+
+        // code coverage
+//        property "sonar.java.coveragePlugin", "jacoco"
+//        property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/testDebugUnitTest.exec"
+    }
 }
