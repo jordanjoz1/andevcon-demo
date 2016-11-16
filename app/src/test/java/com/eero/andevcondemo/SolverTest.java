@@ -26,6 +26,7 @@ public class SolverTest {
         Assert.assertEquals(21, solver.calcFib(9));
         Assert.assertEquals(34, solver.calcFib(10));
         Assert.assertEquals(55, solver.calcFib(11));
+        Assert.assertEquals(89, solver.calcFib(12));
     }
 
 }
