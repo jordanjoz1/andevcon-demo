@@ -13,10 +13,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
+    ArrayList<Pair<Integer, Integer>> history = new ArrayList<Pair<Integer, Integer>>();
+    Solver solver;
     private EditText inputView;
     private TextView outputView;
-
-    ArrayList<Pair<Integer, Integer>> history = new ArrayList<Pair<Integer, Integer>>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +29,6 @@ public class MainActivity extends AppCompatActivity {
 
         solver = new Solver();
     }
-
-    Solver solver;
 
     private class InputTextWatcher implements TextWatcher {
 
@@ -52,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
             history.add(new Pair<Integer, Integer>(input, output));
             String textOutput = String.valueOf(output);
             outputView.setText(String.valueOf(output));
+
+            //  on some other idea
+            ArrayList<Integer> futureValues = new ArrayList<>();
         }
     }
 
