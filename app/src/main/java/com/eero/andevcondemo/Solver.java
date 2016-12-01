@@ -9,6 +9,9 @@ public class Solver {
     }
 
     int fibonacci(int n) {
+        if (n <= 0) {
+            throw new RuntimeException("Bad input");
+        }
         if (dictionary[n - 1] == 0) {
             if (n <= 2) {
                 dictionary[n - 1] = n - 1;
