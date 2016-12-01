@@ -23,6 +23,7 @@
 ### Blog posts
 * [Streamlining eero's Android Build Process](https://medium.com/@jordanjoz/streamlining-eeros-android-build-process-6a870ef40a89)
 * [How to improve quality and syntax of your Android Code](http://vincentbrison.com/2014/07/19/how-to-improve-quality-and-syntax-of-your-android-code/)
+* [APK size and dex count in Jenkins](https://medium.com/@mreichelt/android-apk-size-dexcount-charts-on-jenkins-ae518e961818)
 
 ### GitHub projects
 * [QualityMatters](https://github.com/artem-zinnatullin/qualitymatters)
